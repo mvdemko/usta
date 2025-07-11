@@ -1,0 +1,23 @@
+[project]
+name = "usta"
+version = "0.1.0"
+description = "Completing USTA-related tasks using CrewAI"
+authors = [{ name = "Maegen Demko", email = "mvd326@gmail.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.141.0,<1.0.0"
+]
+
+[project.scripts]
+usta = "usta.main:run"
+run_crew = "usta.main:run"
+train = "usta.main:train"
+replay = "usta.main:replay"
+test = "usta.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
