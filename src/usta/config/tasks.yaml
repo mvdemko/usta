@@ -1,9 +1,9 @@
-research_task:
+web_scraping_task:
   description: >
-    Write and execute code to gather information on USTA tournaments from the website 
-    {website}. Search by category {category}, section {section}, and district {district} 
-    and date period between {today} and {three_months_from_now}. Include only tournaments that 
-    are open for registration. Collect the following information for each tournament:
+    Gather information on USTA tournaments from the website {website}. Search by category 
+    {category}, section {section}, and district {district} and date period between {today}
+    and {three_months_from_now}. Include only tournaments that are open for registration. 
+    Collect the following information for each tournament:
     - Name
     - Dates
     - Location
@@ -18,8 +18,8 @@ research_task:
     - Price for {level} Women's Doubles
     - Price for {level} Mixed Doubles
   expected_output: >
-    A list of dictionaries, each containing the information for a tournament.
-  agent: researcher
+    Save the data in JSON format to output/tournaments.json.
+  agent: web_scraper
 
 data_visualization_task:
   description: >
@@ -41,5 +41,5 @@ data_visualization_task:
     The user should be able to filter the tournaments by the distance from {home_city} and the 
     number of players registered for each event.
   expected_output: >
-    An HTML file with an interactive map visualization of USTA tournaments with the specified features.
+    A output/maps.html file with an interactive map visualization of USTA tournaments with the specified features.
   agent: data_visualization_specialist

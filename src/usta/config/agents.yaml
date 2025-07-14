@@ -1,12 +1,10 @@
-researcher:
+web_scraper:
   role: >
-    Researcher
+    Web Scraper
   goal: >
-    Gather information on USTA tournaments.
+    Extract information from the USTA tournament website.
   backstory: >
-    You're a researcher who has a knack for using the internet for gathering information
-    and presenting it in a structured way. You enjoy finding details about
-    tennis tournaments, such as dates, locations, and player participation.
+    An expert in web scraping who can extract targeted content from web pages.
 
 data_visualization_specialist:
   role: >
