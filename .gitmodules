@@ -1,0 +1,3 @@
+[submodule "data-retrieval"]
+	path = data-retrieval
+	url = git@github.com:mvdemko/data-retrieval.git
