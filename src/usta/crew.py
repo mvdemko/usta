@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from typing import List
 import os
 
+from usta.tools.code_runners import run_python_from_repo
+
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -29,17 +31,13 @@ class Usta():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def web_scraper(self) -> Agent:
-        with StagehandTool(
-            api_key=os.getenv("BROWSERBASE_API_KEY"),
-            project_id=os.getenv("BROWSERBASE_PROJECT_ID"),
-            model_api_key=os.getenv("ANTHROPIC_API_KEY"),  # OpenAI or Anthropic API key
-        ) as stagehand_tool:
-            return Agent(
-            config=self.agents_config['web_scraper'], # type: ignore[index]
+    def python_code_runner(self) -> Agent:
+        return Agent(
+            config=self.agents_config['python_code_runner'], # type: ignore[index]
             verbose=True,
-            tools=[stagehand_tool]
-            )
+            allow_code_execution=True,
+            tools=[run_python_from_repo]
+        )
 
     @agent
     def data_visualization_specialist(self) -> Agent:
@@ -52,18 +50,21 @@ class Usta():
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def web_scraping_task(self) -> Task:
+    def get_usta_tournament_data_task(self) -> Task:
         return Task(
-            config=self.tasks_config['web_scraping_task'], # type: ignore[index]
-            output_file='tournaments.json',
-            allow_code_execution=True, # Allows the agent to execute code if needed
+            config=self.tasks_config['get_usta_data_task'], # type: ignore[index]
+            tools=[run_python_from_repo],
+            repo_url="https://github.com/mvdemko/data-retrieval",
+            script_path="src/data_retrieval/main.py",
+            args=["tournaments", "Adult (18+)", "Southern California"],
+            allow_code_execution=True,
+            verbose=3
         )
 
     @task
     def data_visualization_task(self) -> Task:
         return Task(
             config=self.tasks_config['data_visualization_task'], # type: ignore[index]
-            output_file='map.html'
         )
 
     @crew

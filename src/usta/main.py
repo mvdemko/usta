@@ -18,13 +18,6 @@ def run():
     Run the crew.
     """
     inputs = {
-        'website': 'https://playtennis.usta.com/tournaments',
-        'today': str(datetime.now().date()),
-        'three_months_from_now': str((datetime.now() + timedelta(days=90)).date()),
-        'home_city': 'San Diego, CA',
-        'category': 'Adult (18+)',
-        'section': 'Southern California',
-        'district': 'Any district',
         'level': '4.5',
         'home_city': 'San Diego, CA'
     }

@@ -1,31 +1,14 @@
-web_scraping_task:
+get_usta_data_task:
   description: >
-    Gather information on USTA tournaments from the website {website}. Search by category 
-    {category}, section {section}, and district {district} and date period between {today}
-    and {three_months_from_now}. Include only tournaments that are open for registration. 
-    Collect the following information for each tournament:
-    - Name
-    - Dates
-    - Location
-    - Registration link
-    - Category
-    - Section
-    - District
-    - Number of players registered for {level} Women's Singles
-    - Number of players registered for {level} Women's Doubles
-    - Number of players registered for {level} Mixed Doubles
-    - Price for {level} Women's Singles
-    - Price for {level} Women's Doubles
-    - Price for {level} Mixed Doubles
+    Run the main.py script in the src/data_retrieval directory within the https://github.com/mvdemko/data-retrieval repository.
   expected_output: >
-    Save the data in JSON format to output/tournaments.json.
-  agent: web_scraper
+    The output of the script, including any results or error messages.
+  agent: python_code_runner
 
 data_visualization_task:
   description: >
-    Generate a map visualization of USTA tournaments based on the data provided by the researcher.
-    The map should show the locations of the tournaments, with markers indicating the number of players registered
-    for each tournament. The map should be interactive and allow users to zoom in and out. Hovering
+    Generate a map visualization of USTA tournaments based on the data provided by the python code runner.
+    The map should show the locations of the tournaments. The map should be interactive and allow users to zoom in and out. Hovering
     over an event should display the tournament
     - Name
     - Dates
@@ -35,9 +18,6 @@ data_visualization_task:
     - Number of players registered for {level} Women's Singles
     - Number of players registered for {level} Women's Doubles
     - Number of players registered for {level} Mixed Doubles
-    - Price for {level} Women's Singles
-    - Price for {level} Women's Doubles
-    - Price for {level} Mixed Doubles
     The user should be able to filter the tournaments by the distance from {home_city} and the 
     number of players registered for each event.
   expected_output: >
