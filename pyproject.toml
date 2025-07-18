@@ -9,7 +9,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "pre-commit (>=4.2.0,<5.0.0)",
-    "black (>=25.1.0,<26.0.0)"
+    "black (>=25.1.0,<26.0.0)",
+    "data-retrieval @ git+ssh://git@github.com/mvdemko/data-retrieval.git",
 ]
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE*"]
@@ -17,3 +18,5 @@ license-files = ["LICENSE*"]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
