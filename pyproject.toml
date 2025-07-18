@@ -11,7 +11,8 @@ dependencies = [
     "pre-commit (>=4.2.0,<5.0.0)",
     "black (>=25.1.0,<26.0.0)"
 ]
-
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE*"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
