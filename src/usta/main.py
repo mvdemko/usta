@@ -17,7 +17,7 @@ def main():
 
     tournament_summaries = []
     for tournament in tournaments:
-        tournament_summaries.append(TournamentSummary(tournament))
+        tournament_summaries.append(TournamentSummary(**tournament.model_dump()))
 
     print(tournament_summaries)
 

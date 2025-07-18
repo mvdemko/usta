@@ -951,6 +951,26 @@ files = [
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
+name = "pygeocodio"
+version = "2.0.1"
+description = "Python wrapper for Geocod.io API"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pygeocodio-2.0.1-py3-none-any.whl", hash = "sha256:96018432a5ceaec52f811591c84364e060e439545d070594e84cee64688071e5"},
+    {file = "pygeocodio-2.0.1.tar.gz", hash = "sha256:4f89d0c2d8c59d5c1062ab0d77b894cb7b0d503d59c3f8f04e5ec54575b8831b"},
+]
+
+[package.dependencies]
+requests = ">=1.0.0"
+
+[package.extras]
+dev = ["pre-commit (>=4.2.0)"]
+docs = ["sphinx (==7.0.1)"]
+tests = ["httpretty (>=0.9.7)", "pytest (>=7.0)", "pytest-cov (>=4.0)", "requests (>=1.0.0)"]
+
+[[package]]
 name = "pysocks"
 version = "1.7.1"
 description = "A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information."
@@ -1331,4 +1351,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "5899e99dcfb860805b95e62bc49c44d6d85eabffdcf7b9638f0c3dccb9e69fe5"
+content-hash = "331d375c2b4ef091534587455a8cfb9124d09f8f381f2050b053e2a674c61f5e"
