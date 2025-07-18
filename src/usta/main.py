@@ -1,65 +1,26 @@
-#!/usr/bin/env python
-import sys
-import warnings
-from datetime import datetime
+from data_retrieval.usta.tournaments import client
+from data_retrieval.usta.tournaments.models.category import Category
+from data_retrieval.usta.tournaments.models.section import Section
+from dotenv import load_dotenv
 
-from usta.crew import Usta
-
-warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+from usta.models.tournament_summary import TournamentSummary
 
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {"level": "4.5", "home_city": "San Diego, CA"}
+def main():
+    load_dotenv()
 
-    try:
-        Usta().crew().kickoff(inputs=inputs)
-    except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
+    # llm_client = anthropic.Anthropic()
 
+    category = Category("Adult (18+)")
+    section = Section("Southern California")
+    tournaments = client.fetch_tournaments(category, section)
 
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {"topic": "AI LLMs", "current_year": str(datetime.now().year)}
-    try:
-        Usta().crew().train(
-            n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs
-        )
+    tournament_summaries = []
+    for tournament in tournaments:
+        tournament_summaries.append(TournamentSummary(tournament))
 
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
+    print(tournament_summaries)
 
 
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        Usta().crew().replay(task_id=sys.argv[1])
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {"topic": "AI LLMs", "current_year": str(datetime.now().year)}
-
-    try:
-        Usta().crew().test(
-            n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs
-        )
-
-    except Exception as e:
-        raise Exception(f"An error occurred while testing the crew: {e}")
+if __name__ == "__main__":
+    main()
