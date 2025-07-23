@@ -26,4 +26,4 @@ class TournamentSummary(Tournament):
             for event in events:
                 players_by_event[event] = players_by_event.get(event, 0) + 1
 
-        return players_by_event
+        return dict(sorted(players_by_event.items()))
