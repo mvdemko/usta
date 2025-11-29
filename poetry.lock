@@ -421,7 +421,7 @@ webdriver-manager = ">=4.0.2,<5.0.0"
 type = "git"
 url = "ssh://git@github.com/mvdemko/data-retrieval.git"
 reference = "HEAD"
-resolved_reference = "7ebb332b6235af0a21133fced3944b096a298f48"
+resolved_reference = "4a0407d9b9088421ed273db83f765f7218a68a27"
 
 [[package]]
 name = "distlib"
@@ -1351,4 +1351,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "331d375c2b4ef091534587455a8cfb9124d09f8f381f2050b053e2a674c61f5e"
+content-hash = "7ff03320f1d117b244e2b954bd43510403a64b13777bd8259822f2ea80901c41"
