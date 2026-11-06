@@ -3,15 +3,12 @@ from data_retrieval.usta.tournaments.models.category import Category
 from data_retrieval.usta.tournaments.models.section import Section
 from pydantic import TypeAdapter
 
-from usta.models.tournament_summary import TournamentSummary
+from tournament_viewer.models.tournament_summary import TournamentSummary
 
 
 def main():
     tournament_summaries = summarize_tournaments()
     write_data(tournament_summaries)
-    # cd src/usta/tournaments
-    # poetry run python3 -m http.server
-    # enter http://localhost:8000/tournaments.html in the browser
 
 
 def summarize_tournaments():

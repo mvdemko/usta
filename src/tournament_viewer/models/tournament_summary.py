@@ -4,7 +4,7 @@ from data_retrieval.usta.tournaments.models.player import Player
 from data_retrieval.usta.tournaments.models.tournament import Tournament
 from pydantic import Field
 
-from usta.tournaments.utils import calculate_distance
+from tournament_viewer.tournaments.utils import calculate_distance
 
 
 class TournamentSummary(Tournament):

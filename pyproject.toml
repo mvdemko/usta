@@ -19,6 +19,9 @@ dependencies = [
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE*"]
 
+[tool.poetry]
+packages = [{include = "tournament_viewer", from = "src"}]
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
